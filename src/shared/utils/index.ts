@@ -1,0 +1,1 @@
+export {default as zipCode} from './zipCode'

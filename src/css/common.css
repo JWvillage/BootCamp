@@ -149,7 +149,113 @@ a {
   outline: none;
 }
 
-.login_Btn_div {
+.sort_field_mobile {
+  width: 160px;
+  height: 52px;
+  border: 1px solid #CCCCCC;
+  margin: 0 12px;
+  padding: 1px 2px;
+  outline: none;
+}
+
+.sort_root .sort_btn {
+  width: 50px;
+  height: 50px;
+  border: 0;
+  background: none;
+}
+
+.sort_btn .sort_img {
+  width: 40px;
+  height: 40px;
+}
+
+.sign_margin .sort_root_address {
+  width: 475px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 10px;
+}
+
+.sort_root_address .address_div {
+  display: flex;
+  margin-top: 10px;
+}
+
+.sort_root_address .zipCode {
+  width: 100px;
+  height: 59px;
+  border: 1px solid #cccccc;
+  margin: 0 12px 0 0;
+  padding: 1px 5px;
+  outline: none;
+}
+
+.sort_root_address .address_input {
+  width: 475px;
+  height: 59px;
+  border: 1px solid #cccccc;
+  margin: 0 12px 0 0;
+  padding: 1px 5px;
+  outline: none;
+}
+
+.address_btn {
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 50px;
+  padding: 0;
+
+}
+.check {
+  color: skyblue;
+}
+
+.worning {
+  color: red;
+}
+
+.gen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #CCCCCC;
+  border-radius: 5px;
+  height: 50px;
+  width: 50px;
+}
+
+.gen_btn {
+  position: absolute;
+  font-size: 17px;
+  color: #333333;
+  background-color: #FFFFFF;
+  /*pointer-events: none;*/
+  border: 1px solid #CCCCCC;
+  cursor: pointer;
+  padding: .375rem .75rem;
+  border-radius: .25rem;
+  line-height: 1.5;
+  font-weight: 400;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+}
+
+.gen_select {
+  background-color: #75c9ba;
+  color: #FFFFFF;
+}
+
+.menu_root span{
+  font-weight: 600;
+}
+
+.sign_Btn_div {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -157,7 +263,7 @@ a {
   width: 450px;
 }
 
-.login_Btn_Icon {
+.sign_Btn_Icon {
   box-shadow: rgba(0, 0, 0, 0.35) 0 2px 5px;
   width: 60px;
   height: 60px;
@@ -177,3 +283,4 @@ a {
   width: 450px;
   margin-top: 50px;
 }
+

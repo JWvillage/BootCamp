@@ -5,26 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9554b31-2b9a-4cbd-812d-32d15bb0508b" name="Changes" comment="Header">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/home/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/home/view/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/home/view/main/Home.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/home/view/main/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/css/common.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/home/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/components/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/components/layout/header/Header.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/components/layout/header/MenuList.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/components/layout/header/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/components/layout/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/lockIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/image/openIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/sign/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/sign/view/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/sign/view/signIn/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/sign/view/signUp/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/sign/SignView.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/utils/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/utils/utility.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/utils/zipCode.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/common.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/sign/SignIn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sign/view/signIn/SignIn.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/sign/SignUp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sign/view/signUp/SignUp.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/sign/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/sign/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +57,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/My Project/bootcamp/public/css",
+    "last_opened_file_path": "C:/My Project/bootcamp/public/image",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -70,10 +70,14 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\My Project\bootcamp\public\image" />
+      <recent name="C:\My Project\bootcamp\src\shared\uitls" />
       <recent name="C:\My Project\bootcamp\public\css" />
       <recent name="C:\My Project\bootcamp\src\shared\components\layout\header" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\My Project\bootcamp\src\components\sign\view\signUp" />
+      <recent name="C:\My Project\bootcamp\src\components\sign\view\signIn" />
       <recent name="C:\My Project\bootcamp\src" />
       <recent name="C:\My Project\BootCamp\src\pages" />
       <recent name="C:\My Project\BootCamp\src\components\sign\view" />

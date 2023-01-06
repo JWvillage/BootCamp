@@ -1,5 +1,5 @@
 import {HomeView} from './home'
-import {SignIn} from './sign'
+import {SignView} from './sign'
 import {
     BrowserRouter,
     Route,
@@ -12,8 +12,8 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path={"/home"} element={<HomeView />} />
-                <Route path={"/signIn"} element={<SignIn />} />
-                {/*<Rouxte path={"/signUp"} element={<SignUp />} />*/}
+                <Route path={"/signIn"} element={<SignView sign={'signIn'}/>} />
+                <Route path={"/signUp"} element={<SignView sign={'signUp'}/>} />
                 {/*<Route path={"/board/normal"} element={<Normal />} />*/}
                 {/*<Route path={"/board/notice"} element={<Notice />} />*/}
                 {/*<Route path={"/board/faq"} element={<FAQ />} />*/}
