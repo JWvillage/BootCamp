@@ -8,7 +8,7 @@ import {
     Menu
 } from '@mui/icons-material';
 import {useNavigate} from 'react-router-dom';
-import {MenuList} from "./index";
+import {MenuList} from "../menu";
 
 const Header = () => {
 
