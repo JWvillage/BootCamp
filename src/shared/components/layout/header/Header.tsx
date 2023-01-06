@@ -32,7 +32,8 @@ const Header = () => {
                                 {/*    e.preventDefault();*/}
                                 {/*    navigate('/')*/}
                                 {/*}}/>*/}
-                                <h3 onClick={(e) => {
+                                <h3 style={{cursor: 'pointer'}}
+                                    onClick={(e) => {
                                     e.preventDefault();
                                     navigate('/home')
                                 }}>Home</h3>
