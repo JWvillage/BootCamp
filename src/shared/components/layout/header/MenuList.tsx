@@ -43,7 +43,7 @@ const MenuList = () => {
       fullMenuName: "Sign",
       parentMenuCode: "ROOT",
       parentMenuName: "MyMenu",
-      screenPathText: "/Sign",
+      screenPathText: "/sign",
       subMenuList: [
         {
           menuId: "ds98fh3o4hf9823o0002",
@@ -54,7 +54,7 @@ const MenuList = () => {
           fullMenuName: "Sign > SignIn",
           parentMenuCode: "A10000",
           parentMenuName: "Sign",
-          screenPathText: "/SignIn",
+          screenPathText: "/signIn",
           subMenuList: []
         },
         {
@@ -66,7 +66,7 @@ const MenuList = () => {
           fullMenuName: "Sign > SignUp",
           parentMenuCode: "A10000",
           parentMenuName: "Sign",
-          screenPathText: "/SignUp",
+          screenPathText: "/signUp",
           subMenuList: []
         },
         {
@@ -78,7 +78,7 @@ const MenuList = () => {
           fullMenuName: "Sign > SignOut",
           parentMenuCode: "A10000",
           parentMenuName: "Sign",
-          screenPathText: "/SignOut",
+          screenPathText: "/signOut",
           subMenuList: []
         },
       ]
@@ -92,7 +92,7 @@ const MenuList = () => {
       fullMenuName: "Board",
       parentMenuCode: "ROOT",
       parentMenuName: "MyMenu",
-      screenPathText: "/Board",
+      screenPathText: "/board",
       subMenuList: [
         {
           menuId: "ds98fh3o4hf9823o0006",
@@ -103,7 +103,7 @@ const MenuList = () => {
           fullMenuName: "Board > Normal",
           parentMenuCode: "A20000",
           parentMenuName: "Board",
-          screenPathText: "/Board/Normal",
+          screenPathText: "/board/normal",
           subMenuList: []
         },
         {
@@ -115,7 +115,7 @@ const MenuList = () => {
           fullMenuName: "Board > Notice",
           parentMenuCode: "A20000",
           parentMenuName: "Board",
-          screenPathText: "/Board/Notice",
+          screenPathText: "/board/notice",
           subMenuList: []
         },
         {
@@ -127,7 +127,7 @@ const MenuList = () => {
           fullMenuName: "Board > FAQ",
           parentMenuCode: "A20000",
           parentMenuName: "Board > FAQ",
-          screenPathText: "/Board/FAQ",
+          screenPathText: "/board/faq",
           subMenuList: []
         },
         {
@@ -139,7 +139,7 @@ const MenuList = () => {
           fullMenuName: "Board > Q&A ",
           parentMenuCode: "A20000",
           parentMenuName: "Board > Q&A",
-          screenPathText: "/Board/Q&A",
+          screenPathText: "/board/qna",
           subMenuList: []
         },
       ]
