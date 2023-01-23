@@ -35,7 +35,7 @@ const Header = () => {
                                 <h3 style={{cursor: 'pointer'}}
                                     onClick={(e) => {
                                     e.preventDefault();
-                                    navigate('/home')
+                                    navigate('/')
                                 }}>Home</h3>
                             </Grid>
                         </Grid>

@@ -12,7 +12,7 @@ function App() {
     <div className="App">
         <BrowserRouter>
             <Routes>
-                <Route path={"/home"} element={<HomeView />} />
+                <Route path={"/"} element={<HomeView />} />
                 <Route path={"/signIn"} element={<SignView sign={'signIn'}/>} />
                 <Route path={"/signUp"} element={<SignView sign={'signUp'}/>} />
                 <Route path={"/board/normal"} element={<BoardView flag={'normal'} />} />
