@@ -1,4 +1,6 @@
-import React, {useState} from 'react';
+import React, {
+  // useEffect,
+  useState} from 'react';
 import {
   Collapse,
   List,
@@ -33,118 +35,158 @@ const MenuList = () => {
   // console.log(menu.menuList)
 
   // test 더미
-  const menu = [
+  let menu = [
     {
-      menuId: "ds98fh3o4hf9823o0001",
-      menuName: "Sign",
-      menuLevelValue : "1",
-      menuCode: "A10000",
-      showIndicator: true,
-      fullMenuName: "Sign",
-      parentMenuCode: "ROOT",
-      parentMenuName: "MyMenu",
-      screenPathText: "/sign",
-      subMenuList: [
+      "menuId": "ds98fh3o4hf9823o0001",
+      "menuName": "Sign",
+      "menuLevelValue" : "1",
+      "menuCode": "A10000",
+      "showIndicator": true,
+      "fullMenuName": "Sign",
+      "parentMenuCode": "ROOT",
+      "parentMenuName": "MyMenu",
+      "screenPathText": "/sign",
+      "subMenuList": [
         {
-          menuId: "ds98fh3o4hf9823o0002",
-          menuName: "SignIn",
-          menuLevelValue : "2",
-          menuCode: "A10100",
-          showIndicator: true,
-          fullMenuName: "Sign > SignIn",
-          parentMenuCode: "A10000",
-          parentMenuName: "Sign",
-          screenPathText: "/signIn",
-          subMenuList: []
+          "menuId": "ds98fh3o4hf9823o0002",
+          "menuName": "SignIn",
+          "menuLevelValue" : "2",
+          "menuCode": "A10100",
+          "showIndicator": true,
+          "fullMenuName": "Sign > SignIn",
+          "parentMenuCode": "A10000",
+          "parentMenuName": "Sign",
+          "screenPathText": "/signIn",
+          "subMenuList": []
         },
         {
-          menuId: "ds98fh3o4hf9823o0003",
-          menuName: "SignUp",
-          menuLevelValue : "2",
-          menuCode: "A10200",
-          showIndicator: true,
-          fullMenuName: "Sign > SignUp",
-          parentMenuCode: "A10000",
-          parentMenuName: "Sign",
-          screenPathText: "/signUp",
-          subMenuList: []
+          "menuId": "ds98fh3o4hf9823o0003",
+          "menuName": "SignUp",
+          "menuLevelValue" : "2",
+          "menuCode": "A10200",
+          "showIndicator": true,
+          "fullMenuName": "Sign > SignUp",
+          "parentMenuCode": "A10000",
+          "parentMenuName": "Sign",
+          "screenPathText": "/signUp",
+          "subMenuList": []
         },
         {
-          menuId: "ds98fh3o4hf9823o0004",
-          menuName: "SignOut",
-          menuLevelValue : "2",
-          menuCode: "A10300",
-          showIndicator: false,
-          fullMenuName: "Sign > SignOut",
-          parentMenuCode: "A10000",
-          parentMenuName: "Sign",
-          screenPathText: "/signOut",
-          subMenuList: []
-        },
+          "menuId": "ds98fh3o4hf9823o0004",
+          "menuName": "SignOut",
+          "menuLevelValue" : "2",
+          "menuCode": "A10300",
+          "showIndicator": false,
+          "fullMenuName": "Sign > SignOut",
+          "parentMenuCode": "A10000",
+          "parentMenuName": "Sign",
+          "screenPathText": "/signOut",
+          "subMenuList": []
+        }
       ]
     },
     {
-      menuId: "ds98fh3o4hf9823o0005",
-      menuName: "Board",
-      menuLevelValue : "1",
-      menuCode: "A20000",
-      showIndicator: true,
-      fullMenuName: "Board",
-      parentMenuCode: "ROOT",
-      parentMenuName: "MyMenu",
-      screenPathText: "/board",
-      subMenuList: [
+      "menuId": "ds98fh3o4hf9823o0005",
+      "menuName": "Board",
+      "menuLevelValue" : "1",
+      "menuCode": "A20000",
+      "showIndicator": true,
+      "fullMenuName": "Board",
+      "parentMenuCode": "ROOT",
+      "parentMenuName": "MyMenu",
+      "screenPathText": "/board",
+      "subMenuList": [
         {
-          menuId: "ds98fh3o4hf9823o0006",
-          menuName: "Normal",
-          menuLevelValue : "2",
-          menuCode: "A20100",
-          showIndicator: true,
-          fullMenuName: "Board > Normal",
-          parentMenuCode: "A20000",
-          parentMenuName: "Board",
-          screenPathText: "/board/normal",
-          subMenuList: []
+          "menuId": "ds98fh3o4hf9823o0006",
+          "menuName": "Normal",
+          "menuLevelValue" : "2",
+          "menuCode": "A20100",
+          "showIndicator": true,
+          "fullMenuName": "Board > Normal",
+          "parentMenuCode": "A20000",
+          "parentMenuName": "Board",
+          "screenPathText": "/board/normal",
+          "subMenuList": []
         },
         {
-          menuId: "ds98fh3o4hf9823o0007",
-          menuName: "Notice",
-          menuLevelValue : "2",
-          menuCode: "A20200",
-          showIndicator: true,
-          fullMenuName: "Board > Notice",
-          parentMenuCode: "A20000",
-          parentMenuName: "Board",
-          screenPathText: "/board/notice",
-          subMenuList: []
+          "menuId": "ds98fh3o4hf9823o0007",
+          "menuName": "Notice",
+          "menuLevelValue" : "2",
+          "menuCode": "A20200",
+          "showIndicator": true,
+          "fullMenuName": "Board > Notice",
+          "parentMenuCode": "A20000",
+          "parentMenuName": "Board",
+          "screenPathText": "/board/notice",
+          "subMenuList": []
         },
         {
-          menuId: "ds98fh3o4hf9823o0008",
-          menuName: "FAQ",
-          menuLevelValue : "2",
-          menuCode: "A20300",
-          showIndicator: true,
-          fullMenuName: "Board > FAQ",
-          parentMenuCode: "A20000",
-          parentMenuName: "Board > FAQ",
-          screenPathText: "/board/faq",
-          subMenuList: []
+          "menuId": "ds98fh3o4hf9823o0008",
+          "menuName": "FAQ",
+          "menuLevelValue" : "2",
+          "menuCode": "A20300",
+          "showIndicator": true,
+          "fullMenuName": "Board > FAQ",
+          "parentMenuCode": "A20000",
+          "parentMenuName": "Board > FAQ",
+          "screenPathText": "/board/faq",
+          "subMenuList": []
         },
         {
-          menuId: "ds98fh3o4hf9823o009",
-          menuName: "Q&A",
-          menuLevelValue : "2",
-          menuCode: "A20400",
-          showIndicator: true,
-          fullMenuName: "Board > Q&A ",
-          parentMenuCode: "A20000",
-          parentMenuName: "Board > Q&A",
-          screenPathText: "/board/qna",
-          subMenuList: []
-        },
+          "menuId": "ds98fh3o4hf9823o009",
+          "menuName": "Q&A",
+          "menuLevelValue" : "2",
+          "menuCode": "A20400",
+          "showIndicator": true,
+          "fullMenuName": "Board > Q&A ",
+          "parentMenuCode": "A20000",
+          "parentMenuName": "Board > Q&A",
+          "screenPathText": "/board/qna",
+          "subMenuList": []
+        }
       ]
-    },
-  ]
+    }
+  ];
+  // let menu = [{
+  //   menuId : '',
+  //   menuName: '',
+  //   menuLevelValue : '',
+  //   menuCode: '',
+  //   showIndicator: true,
+  //   fullMenuName: '',
+  //   parentMenuCode: '',
+  //   parentMenuName: '',
+  //   screenPathText: '',
+  //   subMenuList: [
+  //     {
+  //       menuId: '',
+  //       menuName: '',
+  //       menuLevelValue: '',
+  //       menuCode: '',
+  //       showIndicator: true,
+  //       fullMenuName: '',
+  //       parentMenuCode: '',
+  //       parentMenuName: '',
+  //       screenPathText: '',
+  //       subMenuList: []
+  //     }
+  //   ]
+  // }];
+
+  // useEffect(() => {
+  //   const url = 'http://localhost:8080/menu';
+  //   fetch(url, {
+  //     method : 'POST',
+  //   })
+  //       .then((response) => {
+  //         return response.json();
+  //       })
+  //       .then((result) => {
+  //         // console.log(result.item)
+  //         menu = JSON.parse(result.item);
+  //         console.log(menu);
+  //       })
+  // }, [])
 
   return (
     <List
