@@ -3,21 +3,13 @@ import {GroupAdd} from "@mui/icons-material";
 import {useNavigate} from "react-router-dom";
 import {zipCode} from "../../../../shared";
 import {validate} from "../../../../shared/utils/utility";
+import {MemberStore} from "../../../../store";
 
 const SignUp = () => {
 
     const navigate = useNavigate();
 
-    const [member, setMember] = useState({
-        id : "",
-        password : "",
-        name : "",
-        email : "",
-        address : "",
-        phone : "",
-        birthDay : "",
-        gender : ""
-    });
+    const [member, setMember] = useState(new MemberStore());
 
     const [requiredCheck, setRequiredCheck] = useState(false)
 
@@ -79,6 +71,23 @@ const SignUp = () => {
     const options = [
         '010', '011'
     ]
+
+    const singUp = (member: MemberStore) => {
+        const url = 'http://localhost:8080/signUp';
+        fetch(url, {
+            method : 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body : JSON.stringify(member)
+        })
+            .then((response) => {
+                return response.json();
+            })
+            .then((result) => {
+                console.log(JSON.stringify(result));
+            })
+    }
 
   return (
       <div className='sign_Root'>
@@ -257,7 +266,7 @@ const SignUp = () => {
                               type="text"
                               name='email'
                               placeholder='이메일을 입력하세요'
-                              onBlur={validate}
+                              // onBlur={validate}
                               onChange={changeMember}
                           />
                       </div>
@@ -328,7 +337,7 @@ const SignUp = () => {
                   <button className="sign_Btn_Icon" onClick={(e) => {
                       e.preventDefault();
                       if (requiredCheck) {
-                          // MemberLogic.instance.memberRegist(member);
+                          singUp(member);
                           navigate("/signIn");
                       } else {
                           alert('필수 입력 값을 모두 입력하세요!')
