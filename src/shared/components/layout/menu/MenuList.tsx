@@ -32,7 +32,7 @@ const MenuList = (props: {menu: MainMenu[]}) => {
     }
   };
 
-  console.log(props.menu);
+  // console.log(props.menu);
 
   return (
     <List

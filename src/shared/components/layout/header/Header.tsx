@@ -21,16 +21,22 @@ const Header = () => {
         const [menu, setMenu] = useState([new MainMenu()]);
 
         useEffect(() => {
-          const url = 'http://localhost:8080/menu';
-          fetch(url, {
-            method : 'GET',
-          })
-              .then((response) => {
-                return response.json();
-              })
-              .then((result) => {
-                setMenu(JSON.parse(result.item));
-              })
+          const menuList = localStorage.getItem("menuList");
+          if (menuList !== null) {
+            setMenu(JSON.parse(menuList));
+          } else {
+            const url = 'http://localhost:8080/menu';
+            fetch(url, {
+              method : 'GET',
+            })
+                .then((response) => {
+                  return response.json();
+                })
+                .then((result) => {
+                  setMenu(result);
+                  localStorage.setItem("menuList", JSON.stringify(result));
+                })
+          }
         }, [])
 
         return (
