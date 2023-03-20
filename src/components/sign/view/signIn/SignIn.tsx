@@ -1,10 +1,44 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Login
 } from '@mui/icons-material';
 
 const SignIn = () => {
-  
+
+  const [member, setMember] = useState({
+    memberId : "",
+    memberPass : ""
+  });
+
+  const changeMember = (event: any) => {
+    const {value} = event.target;
+    const {name} = event.target;
+
+    setMember({...member, [name]: value});
+  }
+
+  const singIn = () => {
+    console.log(member);
+    const url = 'http://localhost:8080/signIn';
+    fetch(url, {
+      method : 'POST',
+      body : JSON.stringify(member)
+    })
+        .then((response) => {
+          return response.json();
+        })
+        .then((result) => {
+          if (result.status === "200"){
+            const loginMember = JSON.parse(result.member);
+            localStorage.setItem("loginId", loginMember.memberId);
+            alert(loginMember.memberName + "님 어서오세요!");
+          } else {
+            alert(result.errorMsg);
+            setMember({memberId: "",memberPass: ""})
+          }
+        })
+  }
+
   return (
     <div className='sign_Root'>
       <div className='sign_Frm'>
@@ -16,11 +50,12 @@ const SignIn = () => {
               <input
                   className='sort_field'
                   type="text"
-                  name="userId"
+                  name="memberId"
                   placeholder='아이디를 입력하세요'
                   minLength={6}
                   maxLength={12}
-                  // onChange={loginHandle}
+                  value={member.memberId}
+                  onChange={changeMember}
               />
             </div>
           </div>
@@ -33,12 +68,13 @@ const SignIn = () => {
               <input
                   className='sort_field'
                   type="password"
-                  name="userPass"
+                  name="memberPass"
                   placeholder='비밀번호를 입력하세요'
                   style={{fontFamily: 'Fira Code'}}
                   minLength={8}
                   maxLength={16}
-                  // onChange={loginHandle}
+                  value={member.memberPass}
+                  onChange={changeMember}
               />
             </div>
           </div>
@@ -49,7 +85,9 @@ const SignIn = () => {
           </div>
           <button
               className="sign_Btn_Icon"
-              // onClick={loginCheck}
+              onClick={() => {
+                singIn()
+              }}
           >
             <Login />
           </button>

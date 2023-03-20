@@ -8,13 +8,13 @@ export function validate (e: React.ChangeEvent<HTMLInputElement>) {
         const password = /^.*(?=^.{8,16}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/
         const birth = /^\d{4}-\d{2}-\d{2}$/
         const email = /^\w+@[a-z]+\.[a-z]$/
-        if ( name === "id" ) {
+        if ( name === "memberId" ) {
             pass = id
-        } else if ( name === "password" ) {
+        } else if ( name === "memberPass" ) {
             pass = password
-        } else if ( name === "birthDay" ) {
+        } else if ( name === "memberBirthday" ) {
             pass = birth
-        } else if ( name === "email" ) {
+        } else if ( name === "memberEmail" ) {
             pass = email
         } else {
             pass = /^$/

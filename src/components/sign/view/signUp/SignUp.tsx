@@ -18,25 +18,24 @@ const SignUp = () => {
         const { name } = event.target;
         if (name === 'mobile3') {
             const phoneNumber = phoneFirstNumber + "-" + phoneMiddleNumber + "-" + value
-            setMember({...member, phone: phoneNumber})
+            setMember({...member, memberPhone: phoneNumber})
         } else if (name === 'address2') {
             const wholeAddress = postAddress + " " + value
-            setMember({...member, address: wholeAddress})
+            setMember({...member, memberAddress: wholeAddress})
         } else {
             setMember({...member, [ name ] : value})
         }
-        // console.log(member)
 
-        if (member.id !== '' &&
-            member.password !== '' &&
-            member.name !== '' &&
-            member.email !== '' &&
-            member.address !== '' &&
-            member.id !== '' &&
-            member.phone !== '' &&
-            member.birthDay !== '' &&
-            member.phone !== ''
+        if (member.memberId !== '' &&
+            member.memberPass !== '' &&
+            member.memberName !== '' &&
+            member.memberEmail !== '' &&
+            member.memberAddress !== '' &&
+            member.memberBirthday !== '' &&
+            member.memberGender !== '' &&
+            member.memberPhone !== ''
         ) {
+            console.log(member)
             setRequiredCheck(true)
         }
     };
@@ -45,15 +44,15 @@ const SignUp = () => {
         const genBtn = document.getElementsByClassName('gen_btn')
         for (var i = 0; i < document.getElementsByClassName('gen_btn').length; i++) {
             // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-            member.gender === genBtn[i].getAttribute('value') ?
+            member.memberGender === genBtn[i].getAttribute('value') ?
                 genBtn[i].className += ' gen_select' : genBtn[i].className = 'gen_btn'
         }
-    }, [member.gender])
+    }, [member.memberGender])
 
     // 성별
     const genSelect = (event: any) => {
         const { value } = event.target;
-        setMember({...member, gender: value})
+        setMember({...member, memberGender : value})
     };
 
     // 주소
@@ -76,9 +75,6 @@ const SignUp = () => {
         const url = 'http://localhost:8080/signUp';
         fetch(url, {
             method : 'POST',
-            headers: {
-                "Content-Type": "application/json",
-            },
             body : JSON.stringify(member)
         })
             .then((response) => {
@@ -100,7 +96,7 @@ const SignUp = () => {
                           <input
                               className='sort_field'
                               type="text"
-                              name="id"
+                              name="memberId"
                               placeholder='아이디를 입력하세요'
                               minLength={6}
                               maxLength={12}
@@ -110,12 +106,12 @@ const SignUp = () => {
                       </div>
                       <div>
                           <button type='button' className='sort_btn'>
-                              <img src="/image/lockIcon.png" alt="" id='id_sort' className='sort_img'/>
+                              <img src="/image/lockIcon.png" alt="" id='memberId_sort' className='sort_img'/>
                           </button>
                       </div>
                   </div>
                   <div style={{marginTop: '5px'}}>
-                      <p><span id='id_check' className='check'></span></p>
+                      <p><span id='memberId_check' className='check'></span></p>
                       <p>아이디는 <span className='worning'>6자리에서 12자리</span>로 입력해주세요</p>
                       <p><span className='worning'>영문과 숫자</span>만 입력해주세요</p>
                   </div>
@@ -128,7 +124,7 @@ const SignUp = () => {
                           <input
                               className='sort_field'
                               type="password"
-                              name="password"
+                              name="memberPass"
                               placeholder='비밀번호를 입력하세요'
                               style={{fontFamily: 'Fira Code'}}
                               minLength={8}
@@ -139,12 +135,12 @@ const SignUp = () => {
                       </div>
                       <div>
                           <button type='button' className='sort_btn'>
-                              <img src="/image/lockIcon.png" alt="" id='password_sort' className='sort_img'/>
+                              <img src="/image/lockIcon.png" alt="" id='memberPass_sort' className='sort_img'/>
                           </button>
                       </div>
                   </div>
                   <div style={{marginTop: '5px'}}>
-                      <p><span id='password_check' className='check'></span></p>
+                      <p><span id='memberPass_check' className='check'></span></p>
                       <p>비밀번호는 <span className='worning'>8자리에서 16자리</span>로 입력해주세요</p>
                       <p><span className='worning'>영문(대소문자), 숫자, 문자의 조합</span>으로 입력해주세요</p>
                   </div>
@@ -157,13 +153,13 @@ const SignUp = () => {
                           className='sort_field'
                           type="text"
                           id='name'
-                          name='name'
+                          name='memberName'
                           placeholder='이름을 입력하세요'
                           onChange={changeMember}
                       />
                   </div>
                   <div style={{marginTop: '5px'}}>
-                      <p><span id='name_check' className='check'></span></p>
+                      <p><span id='memberName_check' className='check'></span></p>
                   </div>
               </div>
               {/* 생일 & 성별 */}
@@ -178,7 +174,7 @@ const SignUp = () => {
                               className='sort_field'
                               type="text"
                               id='birthDay'
-                              name='birthDay'
+                              name='memberBirthday'
                               style={{width: '280px'}}
                               placeholder='생년월일을 입력하세요'
                               onBlur={validate}
@@ -186,7 +182,7 @@ const SignUp = () => {
                           />
                           <div>
                               <button type='button' className='sort_btn'>
-                                  <img src="/image/lockIcon.png" alt="" id='birthDay_sort' className='sort_img'/>
+                                  <img src="/image/lockIcon.png" alt="" id='memberBirthday_sort' className='sort_img'/>
                               </button>
                           </div>
                       </div>
@@ -212,7 +208,7 @@ const SignUp = () => {
                       </div>
                   </div>
                   <div style={{marginTop: '5px'}}>
-                      <p><span id='birthDay_check' className='check'></span></p>
+                      <p><span id='memberBirthday_check' className='check'></span></p>
                   </div>
               </div>
               {/* 주소 */}
@@ -264,7 +260,7 @@ const SignUp = () => {
                           <input
                               className='sort_field'
                               type="text"
-                              name='email'
+                              name='memberEmail'
                               placeholder='이메일을 입력하세요'
                               // onBlur={validate}
                               onChange={changeMember}
@@ -272,7 +268,7 @@ const SignUp = () => {
                       </div>
                       <div>
                           <button type='button' className='sort_btn'>
-                              <img src="/image/lockIcon.png" alt="" id='email_sort' className='sort_img'/>
+                              <img src="/image/lockIcon.png" alt="" id='memberEmail_sort' className='sort_img'/>
                           </button>
                       </div>
                   </div>
@@ -338,7 +334,7 @@ const SignUp = () => {
                       e.preventDefault();
                       if (requiredCheck) {
                           singUp(member);
-                          navigate("/signIn");
+                          // navigate("/signIn");
                       } else {
                           alert('필수 입력 값을 모두 입력하세요!')
                       }
