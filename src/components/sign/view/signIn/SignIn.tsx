@@ -2,8 +2,11 @@ import React, {useState} from 'react';
 import {
   Login
 } from '@mui/icons-material';
+import {useNavigate} from "react-router-dom";
 
 const SignIn = () => {
+
+  const navigate = useNavigate();
 
   const [member, setMember] = useState({
     memberId : "",
@@ -18,8 +21,8 @@ const SignIn = () => {
   }
 
   const singIn = () => {
-    console.log(member);
-    const url = 'http://localhost:8080/signIn';
+    // console.log(member);
+    const url = 'http://localhost:8088/signIn';
     fetch(url, {
       method : 'POST',
       body : JSON.stringify(member)
@@ -32,6 +35,7 @@ const SignIn = () => {
             const loginMember = JSON.parse(result.member);
             localStorage.setItem("loginId", loginMember.memberId);
             alert(loginMember.memberName + "님 어서오세요!");
+            navigate('/');
           } else {
             alert(result.errorMsg);
             setMember({memberId: "",memberPass: ""})

@@ -70,7 +70,7 @@ video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-family: "BM JUA_TTF", serif;
+  font-family: "BM JUA_OTF", serif;
   vertical-align: baseline
 }
 
@@ -79,7 +79,7 @@ video {
 }
 
 * {
-  font-family: 'BM JUA_TTF';
+  font-family: 'BM JUA_OTF';
 }
 
 li {
@@ -96,7 +96,7 @@ a {
 }
 
 .menuList span {
-  font-family: 'BM JUA_TTF' ;
+  font-family: 'BM JUA_OTF' ;
 }
 
 .sign_Root {
@@ -285,10 +285,10 @@ a {
 }
 
 .css-1ndpvdd-MuiTableCell-root {
-  font-family: "BM JUA_TTF", serif !important;
+  font-family: "BM JUA_OTF", serif !important;
   font-size: 1.5rem !important;
 }
 
 .css-1yhpg23-MuiTableCell-root {
-  font-family: "BM JUA_TTF", serif !important;
+  font-family: "BM JUA_OTF", serif !important;
 }

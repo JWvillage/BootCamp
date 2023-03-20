@@ -16,6 +16,8 @@ const SignUp = () => {
     const changeMember = (event: any) => {
         const { value } = event.target;
         const { name } = event.target;
+        if (name === 'memberId' || name === 'memberPass' || name === 'memberBirthday')
+            validate(event);
         if (name === 'mobile3') {
             const phoneNumber = phoneFirstNumber + "-" + phoneMiddleNumber + "-" + value
             setMember({...member, memberPhone: phoneNumber})
@@ -35,7 +37,7 @@ const SignUp = () => {
             member.memberGender !== '' &&
             member.memberPhone !== ''
         ) {
-            console.log(member)
+            // console.log(member)
             setRequiredCheck(true)
         }
     };
@@ -72,7 +74,7 @@ const SignUp = () => {
     ]
 
     const singUp = (member: MemberStore) => {
-        const url = 'http://localhost:8080/signUp';
+        const url = 'http://localhost:8088/signUp';
         fetch(url, {
             method : 'POST',
             body : JSON.stringify(member)
@@ -82,6 +84,18 @@ const SignUp = () => {
             })
             .then((result) => {
                 console.log(JSON.stringify(result));
+                if (result.status === '200') {
+                    alert('Welcome to PetsFinder!')
+                    navigate('/signIn')
+                } else if (result.status === '300') {
+                    setMember({...member, memberId: ''})
+                    alert(result.errorMsg);
+                    const elementByMemberId = document.getElementsByName("memberId")[0];
+                    elementByMemberId.focus();
+                } else if (result.status === '500') {
+                    alert(result.errorMsg);
+                    window.location.reload();
+                }
             })
     }
 
@@ -100,7 +114,8 @@ const SignUp = () => {
                               placeholder='아이디를 입력하세요'
                               minLength={6}
                               maxLength={12}
-                              onBlur={validate}
+                              // onBlur={validate}
+                              value={member.memberId}
                               onChange={changeMember}
                           />
                       </div>
@@ -334,7 +349,6 @@ const SignUp = () => {
                       e.preventDefault();
                       if (requiredCheck) {
                           singUp(member);
-                          // navigate("/signIn");
                       } else {
                           alert('필수 입력 값을 모두 입력하세요!')
                       }

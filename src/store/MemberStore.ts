@@ -1,12 +1,12 @@
 class MemberStore {
-  memberId : string = "";
-  memberPass : string = "";
-  memberName : string = "";
-  memberEmail : string = "";
-  memberAddress : string = "";
-  memberPhone : string = "";
-  memberBirthday : string = "";
-  memberGender : string = "";
+  memberId : string;
+  memberPass : string;
+  memberName : string;
+  memberEmail : string;
+  memberAddress : string;
+  memberPhone : string;
+  memberBirthday : string;
+  memberGender : string;
 
   constructor() {
     this.memberId = "";

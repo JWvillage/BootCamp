@@ -22,10 +22,10 @@ const Header = () => {
 
         useEffect(() => {
           const menuList = localStorage.getItem("menuList");
-          if (menuList !== null) {
+          if (menuList !== null && localStorage.getItem('loginId') === null) {
             setMenu(JSON.parse(menuList));
           } else {
-            const url = 'http://localhost:8080/menu';
+            const url = 'http://localhost:8088/menu';
             fetch(url, {
               method : 'GET',
             })
@@ -33,6 +33,19 @@ const Header = () => {
                   return response.json();
                 })
                 .then((result) => {
+                    if (localStorage.getItem('loginId') !== null) {
+                        for(let i = 0; i < result[0].subMenuList.length; i++) {
+                            if (result[0].subMenuList[i].menuName === 'SignIn') {
+                                result[0].subMenuList[i].showIndicator = false;
+                            }
+                        }
+                    } else {
+                        for(let j = 0; j < result[0].subMenuList.length; j++) {
+                            if (result[0].subMenuList[j].menuName === 'SignOut') {
+                                result[0].subMenuList[j].showIndicator = false;
+                            }
+                        }
+                    }
                   setMenu(result);
                   localStorage.setItem("menuList", JSON.stringify(result));
                 })
