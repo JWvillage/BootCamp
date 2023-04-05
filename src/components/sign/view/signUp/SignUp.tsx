@@ -13,7 +13,7 @@ const SignUp = () => {
 
     const [requiredCheck, setRequiredCheck] = useState(false)
 
-    const changeMember = (event: any) => {
+    const changeMember = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = event.target;
         const { name } = event.target;
         if (name === 'memberId' || name === 'memberPass' || name === 'memberBirthday')
@@ -41,6 +41,31 @@ const SignUp = () => {
             setRequiredCheck(true)
         }
     };
+
+    let idCheckMessage = "";
+    let validation = document.getElementById("memberId_check")
+    const idCheck = (e: any) => {
+        const url = "/api/member/idCheck";
+        fetch(url, {
+            method : "POST",
+            body : e.target.value
+        })
+            .then((response) => {
+                return response.text();
+            })
+            .then((result) => {
+                idCheckMessage = result;
+                console.log(idCheckMessage);
+                if (idCheckMessage === "possible")
+                    changeMember(e);
+                else {
+                    // @ts-ignore
+                    validation.innerHTML = "중복된 아이디 입니다.";
+                    validation?.setAttribute('style', 'color: red');
+                    document.getElementById("memberId_sort")?.setAttribute('src', '/image/lockIcon.png');
+                }
+            })
+    }
 
     useEffect(() => {
         const genBtn = document.getElementsByClassName('gen_btn')
@@ -74,29 +99,26 @@ const SignUp = () => {
     ]
 
     const singUp = (member: MemberStore) => {
-        const url = 'http://localhost:8088/signUp';
+        const url = '/api/member/registration';
         fetch(url, {
             method : 'POST',
             body : JSON.stringify(member)
         })
-            .then((response) => {
-                return response.json();
-            })
-            .then((result) => {
-                console.log(JSON.stringify(result));
-                if (result.status === '200') {
-                    alert('Welcome to PetsFinder!')
-                    navigate('/signIn')
-                } else if (result.status === '300') {
-                    setMember({...member, memberId: ''})
-                    alert(result.errorMsg);
-                    const elementByMemberId = document.getElementsByName("memberId")[0];
-                    elementByMemberId.focus();
-                } else if (result.status === '500') {
-                    alert(result.errorMsg);
-                    window.location.reload();
-                }
-            })
+        .then((response) => {
+            return response.json();
+        })
+        .then((result) => {
+            if (result.status === '200') {
+                alert('Welcome to PetsFinder!')
+                navigate('/signIn')
+            } else if (result.status === '300') {
+                alert(result.errorMsg);
+                navigate('/idSearch');
+            } else if (result.status === '500') {
+                alert(result.errorMsg);
+                window.location.reload();
+            }
+        })
     }
 
   return (
@@ -114,14 +136,12 @@ const SignUp = () => {
                               placeholder='아이디를 입력하세요'
                               minLength={6}
                               maxLength={12}
-                              // onBlur={validate}
-                              value={member.memberId}
-                              onChange={changeMember}
+                              onBlur={idCheck}
                           />
                       </div>
                       <div>
-                          <button type='button' className='sort_btn'>
-                              <img src="/image/lockIcon.png" alt="" id='memberId_sort' className='sort_img'/>
+                          <button type='button' className='sort_btn' >
+                              <img src="/image/lockIcon.png" alt="" id='memberId_sort' className='sort_img' />
                           </button>
                       </div>
                   </div>
@@ -144,7 +164,7 @@ const SignUp = () => {
                               style={{fontFamily: 'Fira Code'}}
                               minLength={8}
                               maxLength={16}
-                              onBlur={validate}
+                              // onBlur={validate}
                               onChange={changeMember}
                           />
                       </div>
@@ -192,7 +212,7 @@ const SignUp = () => {
                               name='memberBirthday'
                               style={{width: '280px'}}
                               placeholder='생년월일을 입력하세요'
-                              onBlur={validate}
+                              // onBlur={validate}
                               onChange={changeMember}
                           />
                           <div>

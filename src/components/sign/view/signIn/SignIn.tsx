@@ -21,27 +21,40 @@ const SignIn = () => {
   }
 
   const singIn = () => {
-    // console.log(member);
-    const url = 'http://localhost:8088/signIn';
+    const url = '/api/member/login';
     fetch(url, {
       method : 'POST',
       body : JSON.stringify(member)
     })
-        .then((response) => {
-          return response.json();
-        })
-        .then((result) => {
-          if (result.status === "200"){
-            const loginMember = JSON.parse(result.member);
-            localStorage.setItem("loginId", loginMember.memberId);
-            alert(loginMember.memberName + "님 어서오세요!");
-            navigate('/');
-          } else {
-            alert(result.errorMsg);
-            setMember({memberId: "",memberPass: ""})
-          }
-        })
+    .then((response) => {
+      return response.json();
+    })
+    .then((result) => {
+      if (result.status === "200") {
+        const loginMember = JSON.parse(result.member);
+        localStorage.setItem("loginId", loginMember.memberId);
+        alert(loginMember.memberName + "님 어서오세요!");
+        navigate('/');
+      } else {
+        alert(result.errorMsg);
+        setMember({memberId: "",memberPass: ""})
+      }
+    })
   }
+
+  // const sign = () => {
+  //   const msgData = customFetch(
+  //     '/signIn',
+  //     'POST',
+  //       {
+  //         memberId: member.memberId,
+  //         memberPass: member.memberPass
+  //       },
+  //       {}
+  //   )
+  //
+  //   console.log(msgData);
+  // }
 
   return (
     <div className='sign_Root'>
@@ -91,12 +104,15 @@ const SignIn = () => {
               className="sign_Btn_Icon"
               onClick={() => {
                 singIn()
+                // sign()
               }}
           >
             <Login />
           </button>
         </div>
         <div className="login_Text">
+          <a href="/idSearch" style={{color: 'black'}}>아이디 찾기</a>
+          <a href="/pwSearch" style={{color: 'black'}}>비밀번호 찾기</a>
           <a href="/signUp" style={{color: 'black'}}>회원 가입</a>
         </div>
       </div>
