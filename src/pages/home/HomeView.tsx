@@ -6,7 +6,7 @@ const HomeView = () => {
 
     return (
         <>
-            <Header/>
+            <Header />
             <Home />
         </>
     );

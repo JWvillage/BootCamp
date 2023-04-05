@@ -17,25 +17,24 @@ const Header = () => {
 
         const [value, setValue] = useState(0)
 
-
         const [menu, setMenu] = useState([new MainMenu()]);
 
-        useEffect(() => {
-          const menuList = localStorage.getItem("menuList");
-          if (menuList !== null && localStorage.getItem('loginId') === null) {
-            setMenu(JSON.parse(menuList));
-          } else {
-            const url = 'http://localhost:8088/menu';
+        useEffect(() => { 
+
+            const url = '/api/common/mainMenu';
             fetch(url, {
-              method : 'GET',
+                method : 'GET',
             })
                 .then((response) => {
-                  return response.json();
+                    return response.json();
                 })
                 .then((result) => {
                     if (localStorage.getItem('loginId') !== null) {
                         for(let i = 0; i < result[0].subMenuList.length; i++) {
-                            if (result[0].subMenuList[i].menuName === 'SignIn') {
+                            if (
+                                result[0].subMenuList[i].menuName === 'SignIn' ||
+                                result[0].subMenuList[i].menuName === 'SignUp'
+                            ) {
                                 result[0].subMenuList[i].showIndicator = false;
                             }
                         }
@@ -46,10 +45,10 @@ const Header = () => {
                             }
                         }
                     }
-                  setMenu(result);
-                  localStorage.setItem("menuList", JSON.stringify(result));
+                    setMenu(result);
+                    localStorage.setItem("menuList", JSON.stringify(result));
                 })
-          }
+
         }, [])
 
         return (

@@ -1,6 +1,6 @@
 import React, {
-  // useEffect,
-  useState} from 'react';
+  useState
+} from 'react';
 import {
   Collapse,
   List,
@@ -32,21 +32,19 @@ const MenuList = (props: {menu: MainMenu[]}) => {
     }
   };
 
-  // console.log(props.menu);
-
   return (
     <List
       sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
       component="nav"
       aria-labelledby="my-menu"
-      key='menu_list'
+      key='menu_list_'
       subheader={
         <ListSubheader
           component="div"
           id="my-menu"
           key='menu_list_subheader'
         >
-          <ListItemText primary="My Menu" className='menu_root'/>
+          <ListItemText key="menuTitle" primary={localStorage.getItem('loginId') === null ? "My Menu" : localStorage.getItem('loginId') + "님"} className='menu_root'/>
         </ListSubheader>
       }
     >
